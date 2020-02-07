@@ -12,6 +12,9 @@ module.exports = {
         filename: "[name].bundle.js",
         path: path.resolve(__dirname, "build")
     },
+    devServer: {
+        port: 5000
+    },
     plugins: [
         new HTMLWebpackPlugin({
             template: "./index.html"
@@ -26,6 +29,10 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg|jpeg|svg|gif)$/,
+                use: ["file-loader"]
+            },
+            {
+                test: /\.(ttf|woff|woff2|eot)$/,
                 use: ["file-loader"]
             }
         ]
